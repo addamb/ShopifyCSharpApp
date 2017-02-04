@@ -1,0 +1,24 @@
+﻿@{
+	ViewBag.Title = "Connect your Shopify shop";
+}
+<h2>@ViewBag.Title.</h2>
+<form method="post" class="form-horizontal">
+	@Html.AntiForgeryToken()
+	<h4>Enter your Shopify store URL.</h4>
+	<hr />
+	@Html.ValidationSummary("", new { @class = "text-danger" })
+	<div class="form-group">
+		<label class="col-md-3 control-label">Your *.myshopify.com URL</label>
+		<div class="col-md-9">
+			<input type="text" class="form-control" name="shopUrl" value="@ViewBag.ShopUrl" />
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" class="btn btn-default" value="Connect Shop" />
+		</div>
+	</div>
+</form>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}
